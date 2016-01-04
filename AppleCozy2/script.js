@@ -63,3 +63,14 @@ if (overtimehours > 0) {
     console.log ("His paycheck was $", totalpay);
 }
 
+    while (number = 0; number < 101; i++){
+    	if (number % 3 === 0 && number % 5 === 0){
+    		console.log("Fizzbuzz");
+    	}else if (number % 5 === 0){
+            console.log("Buzz");
+    	}else if (number % 3 === 0)
+    	    console.log("Fizz");
+    	}else (number++)
+    		console.log("The number is " + number + "<br>");
+    }
+ 
