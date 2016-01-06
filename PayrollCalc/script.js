@@ -1,12 +1,22 @@
 "use strict";
-function findHoursPerWeek(){
+function getUserValues(message){
+	var userValue;
+	userValue = window.prompt(customMessage);
+	return userValue;
+}
+function employerName(name){
+    var name;
+    name = getUserValues("Enter Employee Name.\nIf no more entries, enter \"DONE\".");
+    return name;
+}
+function findHoursPerWeek(hours){
 	var hoursperweek;
-	hoursperweek = window.prompt("Enter Number of Hours This Week.  \nIf no more entries, enter \"DONE".);
+	hoursperweek = getUserValues("Enter Number of Hours This Week.  \nIf no more entries, enter \"DONE\"".);
     return hoursperweek;
 }
 function findPayRate(){
 	var payrate;
-	payrate = window.prompt ("Enter Hourly Payrate.  \nIf no more entries, enter \"DONE\"");
+	payrate = getUserValues("Enter Hourly Payrate.  \nIf no more entries, enter \"DONE\"");
 	return payrate;
 }
 function calcStandardPay(){
@@ -30,15 +40,17 @@ function calcTotalPay(){
 	return totalpay;
 }
 function showWeeklyLaborHoursWages(){
-    for {
-	    if (hoursperweek <= 40.00){
+	var hoursperweek;
+    while (hoursperweek != "DONE"){
+    	hoursperweek = findHoursPerWeek();
+	    if (hoursperweek <= 40){
         totalpay = Math.round (standardpay*100)/100;
         console.log("Hours:  ", hoursperweek, "\nRate per hour:  \t$", payrate);
         console.log("Base Pay:  \t$", standardpay);
         console.log("Overtime:\tNone",);
         console.log("Total Pay:\t$", standardpay);
-        
-        }else if (overtimehours > 0) {
+         
+        }else if (hoursperweek > 40) {
 	    totalpay = (Math.round (overtimepay * 100) / 100);
 	    console.log("Hours:  ", hoursperweek, "\nRate per hour:  \t$", payrate);
         console.log("Base Pay:\t$", standardpay);
@@ -47,8 +59,9 @@ function showWeeklyLaborHoursWages(){
         
         }else {
         	console.log(End of List)
-        	
+
         }
 
     }
+    
 }
